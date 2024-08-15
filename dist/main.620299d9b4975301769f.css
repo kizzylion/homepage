@@ -864,6 +864,9 @@ video {
   :root {
     font-size: 12px;
   }
+          section#hero .section .imageContent #circularText text {
+            font-size: 3.7rem;
+          }
 }@media (max-width: 640px) {
     section#banner .sun {
       scale: 0.35;
@@ -924,4 +927,4 @@ video {
 }
 
 
-/*# sourceMappingURL=main.2002479d3fbab2c5431a.css.map*/
+/*# sourceMappingURL=main.620299d9b4975301769f.css.map*/

@@ -498,6 +498,18 @@ section#hero {
   :root {
     font-size: 12px;
   }
+
+  section#hero {
+    .section {
+      .imageContent {
+        #circularText {
+          text {
+            font-size: 3.7rem;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 640px) {
