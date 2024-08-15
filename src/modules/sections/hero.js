@@ -71,14 +71,14 @@ function heroUi() {
                 </defs>
                 </svg>
                 
-            <div class="section flex flex-col gap-5 lg:gap-12 lg:flex-row relative max-w-7xl mx-auto px-5 lg:px-8 py-5 lg:gap-16 md:py-10  lg:py-12 lg:rounded-3xl ">
-                <div class="textContent flex flex-col  order-2 md:grow-[2] w-full lg:order-1">
+            <div class="section  relative max-w-7xl w-full mx-auto px-5 lg:px-8 py-5 gap-5 lg:gap-16 md:py-10  lg:py-12 lg:rounded-3xl ">
+                <div class="textContent flex flex-col  order-2  lg:order-1">
                     <div class"textDiv flex flex-col lg:mb-5">
                         <h3 class="workStatus mb-4 mt-6 lg:mb-5"> <span class="open mr-3">OPEN TO WORK</span><span class="mr-1">|</span>Product designer & Web developer</h3>
                         <h1  class="mb-6 "><span id="myName"></span></h1>
                         <h2 class="mb-6 lg:mb-10">Frontend Developer based in Lagos, Nigeria</h2>
                         <p class="max-w-[768px]">Having spent years in product design, I’ve developed a deep understanding of user experience and interface design. This experience fuels my passion for web development, where I can combine my design sensibilities with coding to create seamless, engaging web applications. </p>
-                        <div class="scroller mt-4 lg:mt-6" data-speed="fast">
+                        <div class="scroller mt-8 lg:mt-8" data-speed="fast">
                             <ul class="tag-list scroller__inner">
                                 <li>HTML</li>
                                 <li>CSS</li>
@@ -92,7 +92,7 @@ function heroUi() {
                     
                     </div>
                 </div>
-                <div class="imageContent order-1 lg:order-1 grow-0 relative flex">
+                <div class="imageContent  order-1 lg:order-1 relative ">
                     <div id="portrait" class="flex p-2 rounded-3xl">
                     </div>
                     <div id="circularText" class="grid place-items-center absolute bottom-[-5%] lg:bottom-[-10%] lg:left-[-20%]">
