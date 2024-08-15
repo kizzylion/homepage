@@ -1,34 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chukwuma Kizito Iheanacho Homepage</title>
-</head>
-<body class="flex flex-col w-screen  h-dvh">
-    <main id="main" class="20">
-        <!-- <header>
-            <div class="section max-w-7xl flex justify-between items-center mx-auto px-8 py-4">
-                <div id="logo" class="py-2">
-                    <h1 class="text-base font-medium text-center">Chukwuma Kizito Iheanacho</h1>
-                </div>
+import chimaSrc from "../../asset/images/kizito.jpg"
+import { getElementById } from "../utilities"
 
-                <button id="themeSwitcher" class="px-4 py-2 text-2xl" ></button>
-            </div>
-        </header> -->
+const chimaPhoto = new Image()
+chimaPhoto.src = chimaSrc
+export function addHero(elem) {
+  let section = document.createElement("section")
+  section.id = "hero"
+  section.classList.add("relative", "lg:py-20", "lg:px-8")
+  section.innerHTML = heroUi()
+  elem.appendChild(section)
 
-        <!-- <section id="banner">
-            <div class="section flex relative max-w-7xl mx-auto px-5 py-5 md:py-10 lg:px-8 lg:py-12">
-                <div class=" sun absolute grid place-content-center ">
-                    <div class="sun-ray "></div>
-                    <div class="sun-front"></div>
-                </div>
-                <div class="textContent flex  w-full"><h1 class="w-full">KIZITO</h1></div>
-            </div>
-        </section> -->
+  checkReduceMotion()
+  const imageContainer = getElementById("portrait")
+  imageContainer.appendChild(chimaPhoto)
+}
 
-        <!-- <section id="hero" class="relative md:py-12 lg:py-20 md:px-8">
-             <svg id="backgroundGrid" class="absolute mx-auto" width="1440" height="680" viewBox="0 0 1440 680" fill="none" xmlns="http://www.w3.org/2000/svg">
+function heroUi() {
+  return `
+       <svg id="backgroundGrid" class="absolute mx-auto" width="1440" height="680" viewBox="0 0 1440 680" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g opacity="0.5">
                 <mask id="mask0_28_16" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1440" height="1440">
                 <rect width="1440" height="1440" fill="url(#paint0_radial_28_16)"/>
@@ -76,9 +65,9 @@
                 </defs>
                 </svg>
                 
-            <div class="section flex relative max-w-7xl mx-auto px-5 py-5 lg:gap-16 md:py-10 md:px-8 lg:py-12 md:rounded-3xl ">
-                <div class="textContent">
-                    <div>
+            <div class="section flex flex-col gap-5 lg:gap-12 lg:flex-row relative max-w-7xl mx-auto px-5 lg:px-8 py-5 lg:gap-16 md:py-10  lg:py-12 lg:rounded-3xl ">
+                <div class="textContent flex flex-col  order-2 md:grow-[2] w-full lg:order-1">
+                    <div class"textDiv flex flex-col lg:mb-5">
                         <h3 class="workStatus mb-4 mt-6 lg:mb-5"> <span class="open mr-3">OPEN TO WORK</span><span class="mr-1">|</span>Product designer & Web developer</h3>
                         <h1 class="mb-6">HEY, I’M CHUKWUMA IHEANACHO 👋
                             <br>
@@ -86,14 +75,24 @@
                         </h1>
                         <h2 class="mb-6 lg:mb-10">Frontend Developer based in Lagos, Nigeria</h2>
                         <p class="max-w-[768px]">Having spent years in product design, I’ve developed a deep understanding of user experience and interface design. This experience fuels my passion for web development, where I can combine my design sensibilities with coding to create seamless, engaging web applications. </p>
-                        <div ></div>
+                        <div class="scroller mt-4 lg:mt-6" data-speed="fast">
+                            <ul class="tag-list scroller__inner">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JS</li>
+                                <li>Photoshop</li>
+                                <li>webdev</li>
+                                <li>animation</li>
+                                <li>UI/UX</li>
+                            </ul>
+                        </div>
+                    
                     </div>
                 </div>
-                <div class="imageContent w-80">
-                    <div class="portrait">
-                        <div id="imageFrame" class="p-2 rounded-3xl"></div>
+                <div class="imageContent order-1 lg:order-1 grow-0 relative flex">
+                    <div id="portrait" class="flex p-2 rounded-3xl">
                     </div>
-                    <div id="circularText" class="grid place-items-center ">
+                    <div id="circularText" class="grid place-items-center absolute bottom-[-5%] lg:bottom-[-10%] lg:left-[-20%]">
                         <svg id="circular" class="absolute" width="140" height="140" class="grid place-content-center" viewBox="0 0 400 400">
                             <defs>
                                 <linearGradient id="gradientBorder" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -119,9 +118,34 @@
                     </div>
                 </div>
             </div>
-        </section> -->
-    </main>
+    `
+}
 
+function checkReduceMotion() {
+  if (!window.matchMedia("(prefers-reduced-motion:reduce)").matches) {
+    addAnimation()
+  }
+}
 
-</body>
-</html>
+function addAnimation() {
+  const scrollers = document.querySelectorAll(".scroller")
+
+  scrollers.forEach((scroller) => {
+    // add data-animated="true" to every `.scroller` on the page
+    scroller.setAttribute("data-animated", "true")
+
+    //make an array from the elements within `.scroller-inner`
+    const scrollerInner = scroller.querySelector(".scroller__inner")
+    const scrollerContent = Array.from(scrollerInner.children)
+    //for each item in the array, clone it
+    //add aria-hidden to it
+    //add it into the `.scroller-inner`
+
+    scrollerContent.forEach((item) => {
+      const duplicatedItem = item.cloneNode(true)
+
+      duplicatedItem.setAttribute("aria-hidden", "true")
+      scrollerInner.appendChild(duplicatedItem)
+    })
+  })
+}
