@@ -1,5 +1,5 @@
 import chimaSrc from "../../asset/images/kizito.jpg"
-import { getElementById } from "../utilities"
+import { getElementById, log, typedMessage } from "../utilities"
 
 const chimaPhoto = new Image()
 chimaPhoto.src = chimaSrc
@@ -13,6 +13,12 @@ export function addHero(elem) {
   checkReduceMotion()
   const imageContainer = getElementById("portrait")
   imageContainer.appendChild(chimaPhoto)
+  typedMessage(
+    "myName",
+    ["HEY, I’M CHUKWUMA IHEANACHO 👋 <br> WELCOME TO MY CREATIVE CORNER"],
+    false,
+    150
+  )
 }
 
 function heroUi() {
@@ -69,10 +75,7 @@ function heroUi() {
                 <div class="textContent flex flex-col  order-2 md:grow-[2] w-full lg:order-1">
                     <div class"textDiv flex flex-col lg:mb-5">
                         <h3 class="workStatus mb-4 mt-6 lg:mb-5"> <span class="open mr-3">OPEN TO WORK</span><span class="mr-1">|</span>Product designer & Web developer</h3>
-                        <h1 class="mb-6">HEY, I’M CHUKWUMA IHEANACHO 👋
-                            <br>
-                            WELCOME TO MY CREATIVE CORNER
-                        </h1>
+                        <h1  class="mb-6 "><span id="myName"></span></h1>
                         <h2 class="mb-6 lg:mb-10">Frontend Developer based in Lagos, Nigeria</h2>
                         <p class="max-w-[768px]">Having spent years in product design, I’ve developed a deep understanding of user experience and interface design. This experience fuels my passion for web development, where I can combine my design sensibilities with coding to create seamless, engaging web applications. </p>
                         <div class="scroller mt-4 lg:mt-6" data-speed="fast">
