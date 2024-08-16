@@ -15,7 +15,7 @@ export function addHero(elem) {
   imageContainer.appendChild(chimaPhoto)
   typedMessage(
     "myName",
-    ["HEY, I’M CHUKWUMA IHEANACHO 👋 <br> WELCOME TO MY CREATIVE CORNER"],
+    ["HEY, I’M CHUKWUMA IHEANACHO 👋 <br> WELCOME TO MY CREATIVE CORNER."],
     false,
     150
   )

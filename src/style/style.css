@@ -139,7 +139,7 @@ body {
 
   --text-primary: var(--Gray-900);
   --text-secondary: var(--Gray-700);
-  --text-tertiary: var(--Gray-500);
+  --text-tertiary: var(--Gray-600);
   --text-success: var(--Success-600);
 
   --border-primary: var(--Gray-200);
@@ -163,7 +163,7 @@ body.dark-theme {
 
   --text-primary: var(--Gray-50);
   --text-secondary: var(--Gray2-200);
-  --text-tertiary: var(--Gray2-400);
+  --text-tertiary: var(--Gray2-300);
   --text-success: var(--Success-400);
 
   --border-primary: var(--Gray-700);
@@ -187,7 +187,7 @@ body.dark-theme {
 
     --text-primary: var(--Gray-50);
     --text-secondary: var(--Gray2-200);
-    --text-tertiary: var(--Gray2-400);
+    --text-tertiary: var(--Gray2-300);
     --text-success: var(--Success-400);
 
     --border-primary: var(--Gray-700);
@@ -206,7 +206,7 @@ body.dark-theme {
 
     --text-primary: var(--Gray-900);
     --text-secondary: var(--Gray-700);
-    --text-tertiary: var(--Gray-500);
+    --text-tertiary: var(--Gray-600);
     --text-success: var(--Success-600);
 
     --border-primary: var(--Gray-200);
@@ -249,14 +249,22 @@ h3 {
   line-height: 150%;
   letter-spacing: 2.4px;
 }
+h4 {
+  color: var(--text-secondary);
+  font-family: "IBM Plex Mono";
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 150%;
+}
 
 p {
   color: var(--text-tertiary);
   font-family: "Roboto Mono";
   max-width: 720px;
-  font-size: clamp(0.75rem, 4vh, 0.85rem);
+  font-size: clamp(0.85rem, 4vh, 0.85rem);
+  color: var(--text-tertiary);
 }
-header {
+header#header {
   border-bottom: 1px solid var(--border-primary);
   position: fixed;
   background-color: var(--bg-primary);
@@ -350,13 +358,23 @@ section#hero {
   .section {
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: 1fr minmax(300px, 1fr);
+    grid-template-columns: 1fr minmax(30rem, 1fr);
     overflow: hidden;
     background-color: var(--bg-primary);
     border: 2px solid var(--border-primary);
   }
   .textContent {
     /* flex-grow: 2 !important; */
+    h1 {
+      height: 2.5em;
+    }
+    h1 .typed-cursor {
+      color: green;
+      -webkit-animation: hide-cursor 0s forwards;
+      -webkit-animation-delay: 20s;
+      animation: hide-cursor 0s forwards;
+      animation-delay: 20s;
+    }
     .workStatus {
       font-family: "Roboto Mono";
 
@@ -429,7 +447,7 @@ section#hero {
       aspect-ratio: 1/1;
       object-fit: cover;
       img {
-        border: 1px red solid;
+        /* border: 1px red solid; */
         /* display: block !important; */
         border-radius: 1rem;
         width: 100%;
@@ -483,6 +501,91 @@ section#hero {
   }
 }
 
+section#portfolio {
+  background-color: var(--bg-primary);
+  #portfolioHeading {
+    #portfolioTitle {
+      color: var(--text-primary);
+    }
+    #portfolioTitle::after {
+      content: "🪴";
+      font-size: 1.5em;
+      margin-left: 0.5rem;
+    }
+  }
+
+  #portfolioContent {
+    .card {
+      cursor: pointer;
+      .card-image {
+        background-color: var(--bg-secondary);
+        border: 1px solid var(--border-primary);
+        transform: scale(1);
+        transition: all 1s ease-out;
+
+        .imageBox {
+          position: relative;
+          background-color: var(--bg-primary);
+        }
+        .imageBox::before {
+          content: "Portfolio image placeholder";
+          position: absolute;
+          font-size: 0.75rem;
+          font-style: italic;
+          text-align: center;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: var(--text-tertiary);
+        }
+      }
+      .card-content {
+        .year {
+          font-weight: 600;
+        }
+      }
+    }
+    .card:hover {
+      .card-image {
+        .imageBox {
+          transform: scale(1.02);
+        }
+      }
+    }
+  }
+}
+
+#cardDetail {
+  #cardDetailHeading {
+  }
+  .content {
+    .card-image {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-primary);
+
+      .imageBox {
+        position: relative;
+        background-color: var(--bg-primary);
+      }
+      .imageBox::before {
+        content: "Portfolio image placeholder";
+        position: absolute;
+        font-size: 0.75rem;
+        font-style: italic;
+        text-align: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: var(--text-tertiary);
+      }
+    }
+    .card-content {
+      .year {
+        font-weight: 600;
+      }
+    }
+  }
+}
 @keyframes scroll {
   to {
     transform: translate(calc(-50% - 0.5rem));
@@ -493,6 +596,11 @@ section#hero {
     transform: translate(-50%, -50%) rotate(-360deg);
   }
 }
+@keyframes hide-cursor {
+  to {
+    display: none;
+  }
+}
 
 @media (min-width: 768px) and (max-width: 1024px) {
   :root {
@@ -501,7 +609,12 @@ section#hero {
 
   section#hero {
     .section {
+      grid-template-columns: repeat(2, minmax(30rem, 1fr));
+      .textContent {
+        width: 100%;
+      }
       .imageContent {
+        width: 100%;
         #circularText {
           text {
             font-size: 3.7rem;

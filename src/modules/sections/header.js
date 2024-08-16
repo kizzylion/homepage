@@ -5,6 +5,8 @@ export function addHeader(elem) {
   let header = document.createElement("header")
   header
   header.innerHTML = headerUi()
+  header.id = "header"
+  header.classList.add("z-60")
   elem.appendChild(header)
 
   const themeBtn = getElementById("themeSwitcher")
