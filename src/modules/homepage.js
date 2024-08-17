@@ -4,11 +4,12 @@ import { addHero } from "./sections/hero"
 import { addDetail } from "./sections/detailPage"
 import { emptyElement } from "./utilities"
 import { addPortfolio } from "./sections/portfolio"
+import { addFooter } from "./sections/footerPage"
 
 export function addHomepage(e) {
   emptyElement(e)
   addBanner(e)
   addHero(e)
   addPortfolio(e)
-  // addDetail(e)
+  addFooter(e)
 }

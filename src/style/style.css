@@ -746,7 +746,21 @@ section#portfolio {
   }
 }
 
+footer#footer {
+  margin-top: auto;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  a {
+    cursor: pointer;
+    &:active,
+    &:hover {
+      color: var(--text-success);
+    }
+  }
+}
+
 #cardDetail {
+  height: 100%;
   #cardDetailHeading {
   }
   .content {

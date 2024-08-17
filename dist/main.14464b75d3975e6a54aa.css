@@ -411,6 +411,8 @@ video {
   margin-right: 0.75rem;
 }.mt-16{
   margin-top: 4rem;
+}.mt-5{
+  margin-top: 1.25rem;
 }.mt-6{
   margin-top: 1.5rem;
 }.mt-8{
@@ -491,6 +493,9 @@ video {
 }.py-5{
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+}.py-8{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }.text-center{
   text-align: center;
 }.text-2xl{
@@ -1104,7 +1109,18 @@ video {
           font-weight: 600;
         }section#portfolio #portfolioContent .card:hover .card-image .imageBox {
           transform: scale(1.05);
-        }#cardDetail #cardDetailHeading {
+        }footer#footer {
+  margin-top: auto;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+}footer#footer a {
+    cursor: pointer;
+  }footer#footer a:active,
+    footer#footer a:hover {
+      color: var(--text-success);
+    }#cardDetail {
+  height: 100%;
+}#cardDetail #cardDetailHeading {
   }#cardDetail .content .card-image {
       background-color: var(--bg-secondary);
       border: 1px solid var(--border-primary);
@@ -1299,6 +1315,9 @@ video {
   }.md\:py-4{
     padding-top: 1rem;
     padding-bottom: 1rem;
+  }.md\:text-lg{
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 }@media (min-width: 1024px){.lg\:bottom-\[-10\%\]{
     bottom: -10%;
@@ -1313,8 +1332,6 @@ video {
     margin-bottom: 2.5rem;
   }.lg\:mb-5{
     margin-bottom: 1.25rem;
-  }.lg\:mt-16{
-    margin-top: 4rem;
   }.lg\:mt-20{
     margin-top: 5rem;
   }.lg\:mt-8{
@@ -1348,4 +1365,4 @@ video {
 }
 
 
-/*# sourceMappingURL=main.b6dcae3abfc8378bf96a.css.map*/
+/*# sourceMappingURL=main.14464b75d3975e6a54aa.css.map*/

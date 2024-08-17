@@ -3,13 +3,15 @@ import { emptyElement, getElementById, log, querySelector } from "../utilities"
 import $ from "jquery"
 import "magnific-popup/dist/magnific-popup.css"
 import "magnific-popup"
+import { addFooter } from "./footerPage"
 
 export function addDetail(elem, data) {
   emptyElement(getElementById("main"))
   let detail = document.createElement("section")
   detail.id = "cardDetail"
-  detail.classList.add("mt-16", "lg:mt-20")
+  detail.classList.add("mt-16", "h-fill", "lg:mt-20")
   detail.innerHTML = cardDetailUi(data)
+
   // elem.innerHTML = ""
 
   const imageBox = querySelector(".imageBox", detail)
@@ -21,6 +23,7 @@ export function addDetail(elem, data) {
     imageBox.appendChild(imgGlass)
   }
   elem.appendChild(detail)
+  addFooter(getElementById("main"))
   addEvents()
 }
 

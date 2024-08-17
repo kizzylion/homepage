@@ -3,7 +3,7 @@ import { themeSwitcher, setThemeIcon, fixThemeIcon } from "../themeSwitching"
 
 export function addHeader(elem) {
   let header = document.createElement("header")
-  header
+  // header
   header.innerHTML = headerUi()
   header.id = "header"
   header.classList.add("z-60")
