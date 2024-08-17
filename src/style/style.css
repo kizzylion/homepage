@@ -109,6 +109,7 @@
   --Gray-950: #0c111d;
   --shadow1: #0c111d30;
   --Success-600: #079455;
+  --glassWhite: #ffffff75;
 
   /* DARK GRAY */
 
@@ -125,8 +126,8 @@
   --Gray2-900: #161b26;
   --Gray2-950: #0c111d;
   --shadow2: #0c111d;
-
   --Success-400: hsl(153, 91%, 40%);
+  --glassBlack: #00000075;
 
   font-size: 16px;
 }
@@ -146,6 +147,7 @@ body {
   --border-secondary: var(--Gray-300);
 
   --shadow: var(--shadow1);
+  --glass: var(--glassWhite);
 
   font-family: "Roboto Mono", monospace;
   font-optical-sizing: auto;
@@ -170,6 +172,7 @@ body.dark-theme {
   --border-secondary: var(--Gray-600);
 
   --shadow: var(--shadow2);
+  --glass: var(--glassBlack);
 
   background-color: var(--bg-primary);
 
@@ -193,6 +196,7 @@ body.dark-theme {
     --border-primary: var(--Gray-700);
     --border-secondary: var(--Gray-600);
     --shadow: var(--shadow2);
+    --glass: var(--glassBlack);
 
     background-color: var(--bg-primary);
     color: var(--text-tertiary);
@@ -212,6 +216,7 @@ body.dark-theme {
     --border-primary: var(--Gray-200);
     --border-secondary: var(--Gray-300);
     --shadow: var(--shadow1);
+    --glass: var(--glassWhite);
 
     font-family: "Roboto Mono", monospace;
     font-optical-sizing: auto;
@@ -500,6 +505,10 @@ section#hero {
     font-size: clamp(1.5rem, 16vh, 2.75rem);
   }
 }
+.text-nowrap {
+  text-wrap: nowrap;
+  white-space: nowrap;
+}
 
 section#portfolio {
   background-color: var(--bg-primary);
@@ -516,16 +525,132 @@ section#portfolio {
 
   #portfolioContent {
     .card {
+      will-change: transform;
       cursor: pointer;
       .card-image {
         background-color: var(--bg-secondary);
         border: 1px solid var(--border-primary);
-        transform: scale(1);
-        transition: all 1s ease-out;
 
         .imageBox {
+          transform: scale(1);
+          transition: transform 0.3s ease-out;
           position: relative;
           background-color: var(--bg-primary);
+
+          .img-glass {
+            position: absolute;
+            display: flex;
+            width: auto;
+            height: 90%;
+            border: 1px solid var(--border-secondary);
+            background-color: var(--glass);
+
+            border-radius: 10px;
+            padding: 4px;
+            backdrop-filter: blur(6px);
+
+            .imageGroup {
+              display: inline-block;
+              /* min-width: fit-content; */
+              width: auto;
+              height: fit-content;
+
+              .battle {
+                position: absolute;
+                width: auto;
+                height: auto;
+
+                max-width: none;
+                max-width: none;
+                object-fit: cover;
+                /* border: 1px solid red; */
+              }
+              .battle-1 {
+                position: relative;
+              }
+              .battle-2 {
+                max-width: 40%;
+                transform: translate(0, -100%);
+              }
+              .battle-3 {
+                max-width: 30%;
+                transform: translate(220%, -100%);
+              }
+            }
+
+            .projectImage {
+              display: block;
+              border-radius: 4px;
+              overflow: clip;
+              object-fit: cover;
+              width: auto;
+              height: auto;
+              max-height: 100% !important;
+            }
+          }
+
+          .img-glass:has(.imageGroup) {
+            height: auto;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transform-origin: center;
+          }
+          .img-glass:has(.todo) {
+            top: 50%;
+            transform: translate(0, -50%);
+          }
+          .img-glass:has(.todo-1) {
+            right: 7%;
+          }
+          .img-glass:has(.todo-2) {
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+          .img-glass:has(.todo-3) {
+            left: 7%;
+          }
+          .img-glass:has(.weather) {
+            scale: 0.9 1;
+            object-fit: cover;
+            top: 50%;
+            transform: translate(0, -50%);
+          }
+          .img-glass:has(.weather-1) {
+            right: 6%;
+          }
+          .img-glass:has(.weather-2) {
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transform-origin: left;
+          }
+          .img-glass:has(.weather-3) {
+            left: 6%;
+          }
+          .img-glass:has(.restaurant-1) {
+            right: 0;
+            top: 0%;
+          }
+          .img-glass:has(.restaurant-2) {
+            left: 0%;
+            bottom: 0;
+          }
+          .img-glass:has(.tic-1) {
+            right: 0;
+            top: 0%;
+          }
+          .img-glass:has(.tic-2) {
+            left: 0%;
+            bottom: 0;
+          }
+          .img-glass:has(.calc-1) {
+            right: 0;
+            top: 0%;
+          }
+          .img-glass:has(.calc-2) {
+            left: 0%;
+            bottom: 0;
+          }
         }
         .imageBox::before {
           content: "Portfolio image placeholder";
@@ -548,7 +673,7 @@ section#portfolio {
     .card:hover {
       .card-image {
         .imageBox {
-          transform: scale(1.02);
+          transform: scale(1.05);
         }
       }
     }

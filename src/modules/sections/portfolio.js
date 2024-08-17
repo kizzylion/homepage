@@ -1,5 +1,6 @@
-import { createPortfolioCard, getElementById } from "../utilities"
+import { createPortfolioCard, getElementById, log } from "../utilities"
 import { addDetail } from "./detailPage"
+import { listItems } from "./portfolioList"
 
 export function addPortfolio(elem) {
   let section = document.createElement("section")
@@ -8,10 +9,11 @@ export function addPortfolio(elem) {
   section.innerHTML = portfolioUi()
   elem.appendChild(section)
 
-  addCardToContainer(getElementById("portfolioContent"))
-  addCardToContainer(getElementById("portfolioContent"))
-  addCardToContainer(getElementById("portfolioContent"))
-  addCardToContainer(getElementById("portfolioContent"))
+  for (const item of listItems) {
+    addCardToContainer(getElementById("portfolioContent"), item)
+  }
+
+  log(listItems[0].pic)
 }
 
 function portfolioUi() {
@@ -28,7 +30,7 @@ function portfolioUi() {
   `
 }
 
-function addCardToContainer(container, title, group, description, year) {
-  const card = createPortfolioCard(title, group, description, year)
+function addCardToContainer(container, item) {
+  const card = createPortfolioCard(item)
   container.appendChild(card)
 }

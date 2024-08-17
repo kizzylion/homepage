@@ -36,7 +36,7 @@ function cardDetailUi() {
       </div>
       <div class="content grid grid-cols-1 lg:grid-cols-2 w-full gap-5 lg:gap-8">
         <header class="card-image flex justify-center items-center aspect-[16/10] w-full rounded-lg mb-4">
-          <div class="imageBox aspect-[16/10] w-3/4 h-auto" role="img" aria-label="Portfolio Image"></div>
+          <div class="imageBox aspect-[16/10] w-3/4 h-auto relative" role="img" aria-label="Portfolio Image"></div>
         </header>
 
         <section class="card-content flex flex-col gap-6 items-start lg:my-12">

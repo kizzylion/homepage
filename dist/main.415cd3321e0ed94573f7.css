@@ -444,6 +444,8 @@ video {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }.flex-col{
   flex-direction: column;
+}.flex-nowrap{
+  flex-wrap: nowrap;
 }.place-content-center{
   place-content: center;
 }.place-items-center{
@@ -574,6 +576,7 @@ video {
   --Gray-950: #0c111d;
   --shadow1: #0c111d30;
   --Success-600: #079455;
+  --glassWhite: #ffffff75;
 
   /* DARK GRAY */
 
@@ -590,8 +593,8 @@ video {
   --Gray2-900: #161b26;
   --Gray2-950: #0c111d;
   --shadow2: #0c111d;
-
   --Success-400: hsl(153, 91%, 40%);
+  --glassBlack: #00000075;
 
   font-size: 16px;
 }body {
@@ -609,6 +612,7 @@ video {
   --border-secondary: var(--Gray-300);
 
   --shadow: var(--shadow1);
+  --glass: var(--glassWhite);
 
   font-family: "Roboto Mono", monospace;
   font-optical-sizing: auto;
@@ -631,6 +635,7 @@ video {
   --border-secondary: var(--Gray-600);
 
   --shadow: var(--shadow2);
+  --glass: var(--glassBlack);
 
   background-color: var(--bg-primary);
 }body.dark-theme img {
@@ -650,6 +655,7 @@ video {
     --border-primary: var(--Gray-700);
     --border-secondary: var(--Gray-600);
     --shadow: var(--shadow2);
+    --glass: var(--glassBlack);
 
     background-color: var(--bg-primary);
     color: var(--text-tertiary);
@@ -669,6 +675,7 @@ video {
     --border-primary: var(--Gray-200);
     --border-secondary: var(--Gray-300);
     --shadow: var(--shadow1);
+    --glass: var(--glassWhite);
 
     font-family: "Roboto Mono", monospace;
     font-optical-sizing: auto;
@@ -912,7 +919,10 @@ video {
           line-height: normal;
         }section#hero text {
     font-size: clamp(1.5rem, 16vh, 2.75rem);
-  }section#portfolio {
+  }.text-nowrap {
+  text-wrap: nowrap;
+  white-space: nowrap;
+}section#portfolio {
   background-color: var(--bg-primary);
 }section#portfolio #portfolioHeading #portfolioTitle {
       color: var(--text-primary);
@@ -921,16 +931,108 @@ video {
       font-size: 1.5em;
       margin-left: 0.5rem;
     }section#portfolio #portfolioContent .card {
+      will-change: transform;
       cursor: pointer;
     }section#portfolio #portfolioContent .card .card-image {
         background-color: var(--bg-secondary);
         border: 1px solid var(--border-primary);
-        transform: scale(1);
-        transition: all 1s ease-out;
       }section#portfolio #portfolioContent .card .card-image .imageBox {
+          transform: scale(1);
+          transition: transform 0.3s ease-out;
           position: relative;
           background-color: var(--bg-primary);
-        }section#portfolio #portfolioContent .card .card-image .imageBox::before {
+        }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass {
+            position: absolute;
+            display: flex;
+            width: auto;
+            height: 90%;
+            border: 1px solid var(--border-secondary);
+            background-color: var(--glass);
+
+            border-radius: 10px;
+            padding: 4px;
+            -webkit-backdrop-filter: blur(6px);
+                    backdrop-filter: blur(6px);
+          }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass .imageGroup {
+              display: inline-block;
+              /* min-width: fit-content; */
+              width: auto;
+              height: -moz-fit-content;
+              height: fit-content;
+            }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass .imageGroup .battle {
+                position: absolute;
+                width: auto;
+                height: auto;
+                max-width: none;
+                -o-object-fit: cover;
+                   object-fit: cover;
+                /* border: 1px solid red; */
+              }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass .imageGroup .battle-1 {
+                position: relative;
+              }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass .imageGroup .battle-2 {
+                max-width: 40%;
+                transform: translate(0, -100%);
+              }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass .imageGroup .battle-3 {
+                max-width: 30%;
+                transform: translate(220%, -100%);
+              }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass .projectImage {
+              display: block;
+              border-radius: 4px;
+              overflow: clip;
+              -o-object-fit: cover;
+                 object-fit: cover;
+              width: auto;
+              height: auto;
+              max-height: 100% !important;
+            }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass:has(.imageGroup) {
+            height: auto;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transform-origin: center;
+          }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass:has(.todo) {
+            top: 50%;
+            transform: translate(0, -50%);
+          }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass:has(.todo-1) {
+            right: 7%;
+          }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass:has(.todo-2) {
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass:has(.todo-3) {
+            left: 7%;
+          }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass:has(.weather) {
+            scale: 0.9 1;
+            -o-object-fit: cover;
+               object-fit: cover;
+            top: 50%;
+            transform: translate(0, -50%);
+          }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass:has(.weather-1) {
+            right: 6%;
+          }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass:has(.weather-2) {
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transform-origin: left;
+          }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass:has(.weather-3) {
+            left: 6%;
+          }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass:has(.restaurant-1) {
+            right: 0;
+            top: 0%;
+          }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass:has(.restaurant-2) {
+            left: 0%;
+            bottom: 0;
+          }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass:has(.tic-1) {
+            right: 0;
+            top: 0%;
+          }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass:has(.tic-2) {
+            left: 0%;
+            bottom: 0;
+          }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass:has(.calc-1) {
+            right: 0;
+            top: 0%;
+          }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass:has(.calc-2) {
+            left: 0%;
+            bottom: 0;
+          }section#portfolio #portfolioContent .card .card-image .imageBox::before {
           content: "Portfolio image placeholder";
           position: absolute;
           font-size: 0.75rem;
@@ -943,7 +1045,7 @@ video {
         }section#portfolio #portfolioContent .card .card-content .year {
           font-weight: 600;
         }section#portfolio #portfolioContent .card:hover .card-image .imageBox {
-          transform: scale(1.02);
+          transform: scale(1.05);
         }#cardDetail #cardDetailHeading {
   }#cardDetail .content .card-image {
       background-color: var(--bg-secondary);
@@ -1067,4 +1169,4 @@ video {
 }
 
 
-/*# sourceMappingURL=main.53e8065355013551d4f3.css.map*/
+/*# sourceMappingURL=main.415cd3321e0ed94573f7.css.map*/

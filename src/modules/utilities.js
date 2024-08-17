@@ -1,8 +1,11 @@
 import Typed from "typed.js"
 import { addDetail } from "./sections/detailPage"
 
-export function getElementById(id) {
-  return document.getElementById(id)
+export function getElementById(id, element = document) {
+  return element.getElementById(id)
+}
+export function querySelector(name, element = document) {
+  return element.querySelector(name)
 }
 
 export function emptyElement(e) {
@@ -29,31 +32,38 @@ export function log(...content) {
   console.log(...content)
 }
 
-export function createPortfolioCard(title, group, description, year) {
+export function createPortfolioCard(item) {
   const main = getElementById("main")
   const card = document.createElement("article")
   card.classList.add("card")
 
-  card.innerHTML = addCardUi()
+  card.innerHTML = addCardUi(item)
+  const imageBox = querySelector(".imageBox", card)
+  for (const image of item.pic) {
+    const imgGlass = document.createElement("div")
+    imgGlass.classList.add("img-glass")
+    imgGlass.appendChild(image)
+    imageBox.appendChild(imgGlass)
+  }
 
   card.addEventListener("click", function (e) {
     addDetail(main)
   })
 
-  function addCardUi() {
+  function addCardUi(item) {
     return `
                 <header class="card-image flex justify-center items-center aspect-[16/10] w-full rounded-lg mb-4">
-                    <div class="imageBox aspect-[16/10] w-3/4 h-auto" role="img" aria-label="Portfolio Image"></div>
+                    <div class="imageBox aspect-[16/10] w-3/4 h-auto relative" role="img" aria-label="Portfolio Image"></div>
                 </header>
                 <section class="card-content flex justify-between gap-6 items-start">
-                    <div class="title">
-                        <h2 class="text-nowrap">Portfolio Title</h2>
-                        <p>Group</p>
+                    <div class="title flex flex-col flex-nowrap">
+                        <h2 class="text-nowrap">${item.title}</h2>
+                        <p>${item.group}</p>
                     </div>
                     <p class="description hidden lg:block">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate quisquam omnis dolorem?
+                        ${item.description}
                     </p>
-                    <time class="year">2024</time>
+                    <time class="year">${item.year}</time>
                 </section>
     `
   }
