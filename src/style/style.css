@@ -835,7 +835,6 @@ section#portfolio {
           left: 7%;
         }
         .img-glass:has(.weather) {
-          scale: 0.9 1;
           object-fit: cover;
           top: 50%;
           transform: translate(0, -50%);
