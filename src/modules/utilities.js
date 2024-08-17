@@ -33,6 +33,7 @@ export function log(...content) {
 }
 
 export function createPortfolioCard(item) {
+  let data = item
   const main = getElementById("main")
   const card = document.createElement("article")
   card.classList.add("card")
@@ -47,7 +48,7 @@ export function createPortfolioCard(item) {
   }
 
   card.addEventListener("click", function (e) {
-    addDetail(main)
+    addDetail(main, data)
   })
 
   function addCardUi(item) {

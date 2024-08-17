@@ -652,7 +652,7 @@ section#portfolio {
             bottom: 0;
           }
         }
-        .imageBox::before {
+        /* .imageBox::before {
           content: "Portfolio image placeholder";
           position: absolute;
           font-size: 0.75rem;
@@ -662,9 +662,18 @@ section#portfolio {
           left: 50%;
           transform: translate(-50%, -50%);
           color: var(--text-tertiary);
-        }
+        } */
       }
       .card-content {
+        padding: 0 0.5em;
+        .description {
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: normal;
+        }
         .year {
           font-weight: 600;
         }
@@ -689,10 +698,127 @@ section#portfolio {
       border: 1px solid var(--border-primary);
 
       .imageBox {
+        transform: scale(1);
+        transition: transform 0.3s ease-out;
         position: relative;
         background-color: var(--bg-primary);
+
+        .img-glass {
+          position: absolute;
+          display: flex;
+          width: auto;
+          height: 90%;
+          border: 1px solid var(--border-secondary);
+          background-color: var(--glass);
+
+          border-radius: 10px;
+          padding: 4px;
+          backdrop-filter: blur(6px);
+
+          .imageGroup {
+            display: inline-block;
+            /* min-width: fit-content; */
+            width: auto;
+            height: fit-content;
+
+            .battle {
+              position: absolute;
+              width: auto;
+              height: auto;
+
+              max-width: none;
+              max-width: none;
+              object-fit: cover;
+              /* border: 1px solid red; */
+            }
+            .battle-1 {
+              position: relative;
+            }
+            .battle-2 {
+              max-width: 40%;
+              transform: translate(0, -100%);
+            }
+            .battle-3 {
+              max-width: 30%;
+              transform: translate(220%, -100%);
+            }
+          }
+
+          .projectImage {
+            display: block;
+            border-radius: 4px;
+            overflow: clip;
+            object-fit: cover;
+            width: auto;
+            height: auto;
+            max-height: 100% !important;
+          }
+        }
+
+        .img-glass:has(.imageGroup) {
+          height: auto;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          transform-origin: center;
+        }
+        .img-glass:has(.todo) {
+          top: 50%;
+          transform: translate(0, -50%);
+        }
+        .img-glass:has(.todo-1) {
+          right: 7%;
+        }
+        .img-glass:has(.todo-2) {
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        .img-glass:has(.todo-3) {
+          left: 7%;
+        }
+        .img-glass:has(.weather) {
+          scale: 0.9 1;
+          object-fit: cover;
+          top: 50%;
+          transform: translate(0, -50%);
+        }
+        .img-glass:has(.weather-1) {
+          right: 6%;
+        }
+        .img-glass:has(.weather-2) {
+          left: 50%;
+          transform: translate(-50%, -50%);
+          transform-origin: left;
+        }
+        .img-glass:has(.weather-3) {
+          left: 6%;
+        }
+        .img-glass:has(.restaurant-1) {
+          right: 0;
+          top: 0%;
+        }
+        .img-glass:has(.restaurant-2) {
+          left: 0%;
+          bottom: 0;
+        }
+        .img-glass:has(.tic-1) {
+          right: 0;
+          top: 0%;
+        }
+        .img-glass:has(.tic-2) {
+          left: 0%;
+          bottom: 0;
+        }
+        .img-glass:has(.calc-1) {
+          right: 0;
+          top: 0%;
+        }
+        .img-glass:has(.calc-2) {
+          left: 0%;
+          bottom: 0;
+        }
       }
-      .imageBox::before {
+      /* .imageBox::before {
         content: "Portfolio image placeholder";
         position: absolute;
         font-size: 0.75rem;
@@ -702,7 +828,7 @@ section#portfolio {
         left: 50%;
         transform: translate(-50%, -50%);
         color: var(--text-tertiary);
-      }
+      } */
     }
     .card-content {
       .year {

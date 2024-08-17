@@ -1,14 +1,22 @@
 import { addHomepage } from "../homepage"
-import { emptyElement, getElementById, log } from "../utilities"
+import { emptyElement, getElementById, log, querySelector } from "../utilities"
 
-export function addDetail(elem) {
+export function addDetail(elem, data) {
   emptyElement(getElementById("main"))
-  let overlay = document.createElement("section")
-  overlay.id = "cardDetail"
-  overlay.classList.add("mt-16", "lg:mt-20")
-  overlay.innerHTML = cardDetailUi()
-  elem.innerHTML = ""
-  elem.appendChild(overlay)
+  let detail = document.createElement("section")
+  detail.id = "cardDetail"
+  detail.classList.add("mt-16", "lg:mt-20")
+  detail.innerHTML = cardDetailUi(data)
+  // elem.innerHTML = ""
+
+  const imageBox = querySelector(".imageBox", detail)
+  for (const image of data.pic) {
+    const imgGlass = document.createElement("div")
+    imgGlass.classList.add("img-glass")
+    imgGlass.appendChild(image)
+    imageBox.appendChild(imgGlass)
+  }
+  elem.appendChild(detail)
   addEvents()
 }
 
@@ -26,7 +34,7 @@ function addEvents() {
   })
 }
 
-function cardDetailUi() {
+function cardDetailUi(data) {
   return `
     <div class="section  relative max-w-7xl w-full  mx-auto px-5 lg:px-8 py-5 gap-5 lg:gap-16 md:py-10  lg:py-12 lg:rounded-3xl ">
       <div id="cardDetailHeading" class="py-3 flex w-full px-4 py-2 mb-8">
@@ -42,16 +50,16 @@ function cardDetailUi() {
         <section class="card-content flex flex-col gap-6 items-start lg:my-12">
           <div class=" flex justify-between w-full">
             <div class="title">
-              <h2>Portfolio Title</h2>
-              <p>Group</p>
+              <h2>${data.title}</h2>
+              <p>${data.group}</p>
             </div>
           
-            <time class="year">2024</time>
+            <time class="year">${data.year}</time>
           </div>
           
 
           <p class="description">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate quisquam omnis dolorem?
+            ${data.description}
           </p>
 
           <div class="flex gap-8" >
