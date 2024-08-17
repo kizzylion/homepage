@@ -1,5 +1,8 @@
 import { addHomepage } from "../homepage"
 import { emptyElement, getElementById, log, querySelector } from "../utilities"
+import $ from "jquery"
+import "magnific-popup/dist/magnific-popup.css"
+import "magnific-popup"
 
 export function addDetail(elem, data) {
   emptyElement(getElementById("main"))
@@ -13,6 +16,7 @@ export function addDetail(elem, data) {
   for (const image of data.pic) {
     const imgGlass = document.createElement("div")
     imgGlass.classList.add("img-glass")
+    imgGlass.setAttribute("href", `${image.src}`)
     imgGlass.appendChild(image)
     imageBox.appendChild(imgGlass)
   }
@@ -31,6 +35,15 @@ function addEvents() {
     targetSection.scrollIntoView({
       behavior: "instant", // Enables instant scrolling
     })
+  })
+
+  // For a gallery
+  $(".img-glass").magnificPopup({
+    // delegate: "a", // Child items selector, by clicking on it popup will open
+    type: "image",
+    gallery: {
+      enabled: true, // Enable gallery mode
+    },
   })
 }
 
