@@ -63,8 +63,8 @@ function cardDetailUi(data) {
           </p>
 
           <div class="flex gap-8" >
-            <button type="button" href="#" class="btn btn-secondary flex text-base"><i class="bi bi-github mr-3"></i> View Code</button>
-            <button type="button" href="#" class="btn btn-primary flex text-base"> View Project <i class="bi bi-box-arrow-up-right ml-3"></i></button>
+            <a  href="${data.repository}" class="btn btn-secondary flex text-base"><i class="bi bi-github mr-3"></i> View Code</a>
+            <a  href="${data.liveLink}" class="btn btn-primary flex text-base"> View Project <i class="bi bi-box-arrow-up-right ml-3"></i></a>
           </div>
        </section>
         <footer>

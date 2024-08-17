@@ -613,6 +613,9 @@ video {
 
   --shadow: var(--shadow1);
   --glass: var(--glassWhite);
+  --fg-primary: var(--Gray-900);
+  --fg-secondary: var(var(--Gray-700));
+  --text-alpha: var(--Gray-25);
 
   font-family: "Roboto Mono", monospace;
   font-optical-sizing: auto;
@@ -636,6 +639,9 @@ video {
 
   --shadow: var(--shadow2);
   --glass: var(--glassBlack);
+  --fg-primary: var(--Gray-100);
+  --fg-secondary: var(var(--Gray-300));
+  --text-alpha: var(--Gray-950);
 
   background-color: var(--bg-primary);
 }body.dark-theme img {
@@ -656,6 +662,9 @@ video {
     --border-secondary: var(--Gray-600);
     --shadow: var(--shadow2);
     --glass: var(--glassBlack);
+    --fg-primary: var(--Gray-100);
+    --fg-secondary: var(var(--Gray-300));
+    --text-alpha: var(--Gray-950);
 
     background-color: var(--bg-primary);
     color: var(--text-tertiary);
@@ -676,6 +685,9 @@ video {
     --border-secondary: var(--Gray-300);
     --shadow: var(--shadow1);
     --glass: var(--glassWhite);
+    --fg-primary: var(--Gray-900);
+    --fg-secondary: var(var(--Gray-700));
+    --text-alpha: var(--Gray-25);
 
     font-family: "Roboto Mono", monospace;
     font-optical-sizing: auto;
@@ -719,7 +731,33 @@ video {
   max-width: 720px;
   font-size: clamp(0.85rem, 4vh, 0.85rem);
   color: var(--text-tertiary);
-}header#header {
+}.btn {
+  display: inline;
+  font-family: "IBM Plex Mono";
+  font-size: 0.85rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+  letter-spacing: 1px;
+
+  padding: 0.75em 1em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  box-shadow: 0 0.5rem 1rem -0.25rem var(--shadow);
+  transition: all 0.3s ease-out;
+}.btn:hover {
+    transform: scale(1.05);
+  }.btn.btn-primary {
+    border: 1px solid var(--border-primary);
+    color: var(--text-alpha);
+    background-color: var(--fg-primary);
+  }.btn.btn-secondary {
+    background-color: var(--bg-tertiary);
+    color: var(--text-tertiary);
+    border: 1px solid var(--border-secondary);
+  }.btn * {
+    margin: 0;
+  }header#header {
   border-bottom: 1px solid var(--border-primary);
   position: fixed;
   background-color: var(--bg-primary);
@@ -1071,7 +1109,7 @@ video {
         transform: scale(1);
         transition: transform 0.3s ease-out;
         position: relative;
-        background-color: var(--bg-primary);
+        /* background-color: var(--bg-primary); */
       }#cardDetail .content .card-image .imageBox .img-glass {
           position: absolute;
           display: flex;
@@ -1295,4 +1333,4 @@ video {
 }
 
 
-/*# sourceMappingURL=main.00c79ddad56655a2eba0.css.map*/
+/*# sourceMappingURL=main.d7131a5f0f82a6857b04.css.map*/

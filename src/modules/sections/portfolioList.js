@@ -43,6 +43,8 @@ export const listItems = [
       "A classic Battleship game built with HTML, CSS, and JavaScript. This project demonstrates my ability to create interactive and engaging user experiences.",
     year: 2024,
     picSrc: [[battleship1, battleship2, battleship3]],
+    repository: "https://github.com/kizzylion/battleship",
+    liveLink: "https://kizzylion.github.io/battleship/",
   },
   {
     title: "Todo App",
@@ -52,6 +54,8 @@ export const listItems = [
       "A functional To-Do app that allows users to manage tasks efficiently. This project showcases my skills in creating user-friendly interfaces and managing state.",
     year: 2024,
     picSrc: [todo1, todo2, todo3],
+    repository: "https://github.com/kizzylion/kizztaskmaster",
+    liveLink: "https://kizzylion.github.io/battleship/",
   },
   {
     title: "Weather App",
@@ -61,6 +65,8 @@ export const listItems = [
       "A dynamic Weather app that fetches real-time data using an API. This project illustrates my ability to work with APIs and handle asynchronous operations.",
     year: 2024,
     picSrc: [weather1, weather2, weather3],
+    repository: "https://github.com/kizzylion/weather_app",
+    liveLink: "https://kizzylion.github.io/weather_app/",
   },
   {
     title: "Restaurant Site",
@@ -70,6 +76,8 @@ export const listItems = [
       "A visually appealing Restaurant homepage designed to attract and engage visitors. This project reflects my design sensibilities and attention to detail.",
     year: 2023,
     picSrc: [restaurant1, restaurant2],
+    repository: "https://github.com/kizzylion/yokizzy-restaurant",
+    liveLink: "https://kizzylion.github.io/yokizzy-restaurant/",
   },
   {
     title: "TicTacToe",
@@ -79,6 +87,8 @@ export const listItems = [
       "A simple yet challenging Tic-Tac-Toe game that highlights my understanding of game logic and responsive design.",
     year: 2023,
     picSrc: [tictac2, tictac1],
+    repository: "https://github.com/kizzylion/tic-tac-toe",
+    liveLink: "https://kizzylion.github.io/tic-tac-toe/",
   },
   {
     title: "Calculator",
@@ -87,6 +97,8 @@ export const listItems = [
     description: "Ability to create interactive and engaging user experiences",
     year: 2023,
     picSrc: [calculator2, calculator1],
+    repository: "https://github.com/kizzylion/calculator",
+    liveLink: "https://kizzylion.github.io/calculator/",
   },
 ]
 
