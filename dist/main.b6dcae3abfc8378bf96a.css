@@ -1051,7 +1051,6 @@ video {
           }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass:has(.todo-3) {
             left: 7%;
           }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass:has(.weather) {
-            scale: 0.9 1;
             -o-object-fit: cover;
                object-fit: cover;
             top: 50%;
@@ -1349,4 +1348,4 @@ video {
 }
 
 
-/*# sourceMappingURL=main.8c946e33219a3f8d8576.css.map*/
+/*# sourceMappingURL=main.b6dcae3abfc8378bf96a.css.map*/
