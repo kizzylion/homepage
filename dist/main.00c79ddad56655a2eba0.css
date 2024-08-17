@@ -436,8 +436,8 @@ video {
   width: 100vw;
 }.max-w-7xl{
   max-width: 80rem;
-}.max-w-\[768px\]{
-  max-width: 768px;
+}.max-w-full{
+  max-width: 100%;
 }.transform{
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }.grid-cols-1{
@@ -798,11 +798,18 @@ video {
     }section#hero .section {
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: 1fr minmax(30rem, 1fr);
+    grid-template-columns: 58% 38%;
+    justify-content: space-between;
     overflow: hidden;
+    align-items: center;
     background-color: var(--bg-primary);
     border: 2px solid var(--border-primary);
-  }/* flex-grow: 2 !important; */section#hero .textContent h1 {
+  }section#hero .textContent {
+    display: flex;
+    width: 100%;
+  }section#hero .textContent .textdiv {
+      width: 100%;
+    }/* flex-grow: 2 !important; */section#hero .textContent h1 {
       height: 2.5em;
     }section#hero .textContent h1 .typed-cursor {
       color: green;
@@ -862,19 +869,18 @@ video {
         animation: scroll 40s linear infinite;
       }section#hero .imageContent {
     position: relative;
-    /* flex-grow: 1; */
   }section#hero .imageContent #portrait {
       will-change: transform;
       transform-origin: top center;
       display: block;
 
       width: 100%;
+      height: 100%;
       border: 1px solid var(--border-secondary);
       aspect-ratio: 1/1;
       -o-object-fit: cover;
          object-fit: cover;
     }section#hero .imageContent #portrait img {
-        /* border: 1px red solid; */
         /* display: block !important; */
         border-radius: 1rem;
         width: 100%;
@@ -940,7 +946,7 @@ video {
           transform: scale(1);
           transition: transform 0.3s ease-out;
           position: relative;
-          background-color: var(--bg-primary);
+          /* background-color: var(--bg-primary); */
         }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass {
             position: absolute;
             display: flex;
@@ -948,6 +954,8 @@ video {
             height: 90%;
             border: 1px solid var(--border-secondary);
             background-color: var(--glass);
+            max-width: none;
+            max-height: 90%;
 
             border-radius: 10px;
             padding: 4px;
@@ -1179,22 +1187,28 @@ video {
   to {
     display: none;
   }
-}@media (min-width: 768px) and (max-width: 1024px) {
+}@media (min-width: 641px) and (max-width: 1024px) {
   :root {
     font-size: 12px;
   }
     section#hero .section {
-      grid-template-columns: repeat(2, minmax(30rem, 1fr));
+      grid-template-columns: 48% 48%;
     }
       section#hero .section .textContent {
         width: 100%;
       }
+        section#hero .section .textContent h1 {
+          font-size: clamp(0.3rem, 5vw, 1.3rem);
+        }
       section#hero .section .imageContent {
         width: 100%;
       }
           section#hero .section .imageContent #circularText text {
             font-size: 3.7rem;
           }
+      section#portfolio #portfolioContent .img-glass {
+        height: auto !important;
+      }
 }@media (max-width: 640px) {
     section#banner .sun {
       scale: 0.35;
@@ -1207,7 +1221,7 @@ video {
       grid-template-columns: repeat(1, minmax(0, 1fr));
     }
       section#hero .textContent h1 {
-        font-size: clamp(1rem, 4vh, 1.25rem);
+        font-size: clamp(0.2rem, 4vw, 1.25rem);
         color: var(--text-primary);
       }
     section#hero .textContent {
@@ -1219,9 +1233,19 @@ video {
     }
 }@media (min-width: 768px){.md\:gap-y-8{
     row-gap: 2rem;
+  }.md\:rounded-3xl{
+    border-radius: 1.5rem;
+  }.md\:p-10{
+    padding: 2.5rem;
+  }.md\:px-6{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }.md\:py-10{
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
+  }.md\:py-4{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 }@media (min-width: 1024px){.lg\:bottom-\[-10\%\]{
     bottom: -10%;
@@ -1271,4 +1295,4 @@ video {
 }
 
 
-/*# sourceMappingURL=main.cee7f99491582a3cb62e.css.map*/
+/*# sourceMappingURL=main.00c79ddad56655a2eba0.css.map*/

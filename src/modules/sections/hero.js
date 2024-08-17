@@ -6,7 +6,7 @@ chimaPhoto.src = chimaSrc
 export function addHero(elem) {
   let section = document.createElement("section")
   section.id = "hero"
-  section.classList.add("relative", "lg:py-20", "lg:px-8")
+  section.classList.add("relative", "md:p-10", "lg:py-20", "lg:px-8")
   section.innerHTML = heroUi()
   elem.appendChild(section)
 
@@ -71,13 +71,13 @@ function heroUi() {
                 </defs>
                 </svg>
                 
-            <div class="section  relative max-w-7xl w-full mx-auto px-5 lg:px-8 py-5 gap-5 lg:gap-16 md:py-10  lg:py-12 lg:rounded-3xl ">
-                <div class="textContent flex flex-col  order-2  lg:order-1">
+            <div class="section  relative max-w-7xl w-full mx-auto px-5 py-5 md:py-4 md:px-6  lg:py-12 md:rounded-3xl ">
+                <div class="textContent flex flex-col  order-2  lg:order-1 w-full">
                     <div class"textDiv flex flex-col lg:mb-5">
                         <h3 class="workStatus mb-4 mt-6 lg:mb-5"> <span class="open mr-3">OPEN TO WORK</span><span class="mr-1">|</span>Product designer & Web developer</h3>
                         <h1  class="mb-6 "><span id="myName"></span></h1>
                         <h2 class="mb-6 lg:mb-10">Frontend Developer based in Lagos, Nigeria</h2>
-                        <p class="max-w-[768px]">Having spent years in product design, I’ve developed a deep understanding of user experience and interface design. This experience fuels my passion for web development, where I can combine my design sensibilities with coding to create seamless, engaging web applications. </p>
+                        <p class="max-w-full w-full">Having spent years in product design, I’ve developed a deep understanding of user experience and interface design. This experience fuels my passion for web development, where I can combine my design sensibilities with coding to create seamless, engaging web applications. </p>
                         <div class="scroller mt-8 lg:mt-8" data-speed="fast">
                             <ul class="tag-list scroller__inner">
                                 <li>HTML</li>

@@ -363,12 +363,20 @@ section#hero {
   .section {
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: 1fr minmax(30rem, 1fr);
+    grid-template-columns: 58% 38%;
+    justify-content: space-between;
     overflow: hidden;
+    align-items: center;
     background-color: var(--bg-primary);
     border: 2px solid var(--border-primary);
   }
   .textContent {
+    display: flex;
+    width: 100%;
+
+    .textdiv {
+      width: 100%;
+    }
     /* flex-grow: 2 !important; */
     h1 {
       height: 2.5em;
@@ -441,18 +449,18 @@ section#hero {
 
   .imageContent {
     position: relative;
-    /* flex-grow: 1; */
+
     #portrait {
       will-change: transform;
       transform-origin: top center;
       display: block;
 
       width: 100%;
+      height: 100%;
       border: 1px solid var(--border-secondary);
       aspect-ratio: 1/1;
       object-fit: cover;
       img {
-        /* border: 1px red solid; */
         /* display: block !important; */
         border-radius: 1rem;
         width: 100%;
@@ -535,7 +543,7 @@ section#portfolio {
           transform: scale(1);
           transition: transform 0.3s ease-out;
           position: relative;
-          background-color: var(--bg-primary);
+          /* background-color: var(--bg-primary); */
 
           .img-glass {
             position: absolute;
@@ -544,6 +552,8 @@ section#portfolio {
             height: 90%;
             border: 1px solid var(--border-secondary);
             background-color: var(--glass);
+            max-width: none;
+            max-height: 90%;
 
             border-radius: 10px;
             padding: 4px;
@@ -853,16 +863,21 @@ section#portfolio {
   }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 641px) and (max-width: 1024px) {
   :root {
     font-size: 12px;
   }
 
   section#hero {
     .section {
-      grid-template-columns: repeat(2, minmax(30rem, 1fr));
+      grid-template-columns: 48% 48%;
       .textContent {
         width: 100%;
+      }
+      .textContent {
+        h1 {
+          font-size: clamp(0.3rem, 5vw, 1.3rem);
+        }
       }
       .imageContent {
         width: 100%;
@@ -871,6 +886,14 @@ section#portfolio {
             font-size: 3.7rem;
           }
         }
+      }
+    }
+  }
+
+  section#portfolio {
+    #portfolioContent {
+      .img-glass {
+        height: auto !important;
       }
     }
   }
@@ -894,7 +917,7 @@ section#portfolio {
 
     .textContent {
       h1 {
-        font-size: clamp(1rem, 4vh, 1.25rem);
+        font-size: clamp(0.2rem, 4vw, 1.25rem);
         color: var(--text-primary);
       }
     }
