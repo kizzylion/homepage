@@ -1109,6 +1109,7 @@ video {
   }#cardDetail .content .card-image {
       background-color: var(--bg-secondary);
       border: 1px solid var(--border-primary);
+      cursor: pointer;
     }#cardDetail .content .card-image .imageBox {
         transform: scale(1);
         transition: transform 0.3s ease-out;
@@ -1249,7 +1250,7 @@ video {
             font-size: 3.7rem;
           }
       section#portfolio #portfolioContent .img-glass {
-        height: auto !important;
+        height: 90% !important;
       }
           section#portfolio #portfolioContent .card .card-content .description {
             display: none !important;
@@ -1349,4 +1350,4 @@ video {
 }
 
 
-/*# sourceMappingURL=main.1103734f00c94d758bb0.css.map*/
+/*# sourceMappingURL=main.3bb6dd9fac4d4508c93c.css.map*/

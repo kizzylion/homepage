@@ -754,7 +754,7 @@ section#portfolio {
     .card-image {
       background-color: var(--bg-secondary);
       border: 1px solid var(--border-primary);
-
+      cursor: pointer;
       .imageBox {
         transform: scale(1);
         transition: transform 0.3s ease-out;
@@ -941,7 +941,7 @@ section#portfolio {
   section#portfolio {
     #portfolioContent {
       .img-glass {
-        height: auto !important;
+        height: 90% !important;
       }
     }
     #portfolioContent {
