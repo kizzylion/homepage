@@ -944,6 +944,15 @@ section#portfolio {
         height: auto !important;
       }
     }
+    #portfolioContent {
+      .card {
+        .card-content {
+          .description {
+            display: none !important;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -968,6 +977,10 @@ section#portfolio {
         font-size: clamp(0.2rem, 4vw, 1.25rem);
         color: var(--text-primary);
       }
+
+      p.description {
+        display: none;
+      }
     }
   }
 
@@ -978,6 +991,18 @@ section#portfolio {
     .imageContent {
       flex-grow: 0;
       width: 100%;
+    }
+  }
+
+  section#portfolio {
+    #portfolioContent {
+      .card {
+        .card-content {
+          .description {
+            display: none !important;
+          }
+        }
+      }
     }
   }
 }

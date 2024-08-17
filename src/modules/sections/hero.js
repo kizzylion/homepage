@@ -76,7 +76,7 @@ function heroUi() {
                     <div class"textDiv flex flex-col lg:mb-5">
                         <h3 class="workStatus mb-4 mt-6 lg:mb-5"> <span class="open mr-3">OPEN TO WORK</span><span class="mr-1">|</span>Product designer & Web developer</h3>
                         <h1  class="mb-6 "><span id="myName"></span></h1>
-                        <h2 class="mb-6 lg:mb-10">Frontend Developer based in Lagos, Nigeria</h2>
+                        <h2 class="mb-6 lg:mb-10">Frontend Developer based in Lagos, Nigeria.</h2>
                         <p class="max-w-full w-full">Having spent years in product design, I’ve developed a deep understanding of user experience and interface design. This experience fuels my passion for web development, where I can combine my design sensibilities with coding to create seamless, engaging web applications. </p>
                         <div class="scroller mt-8 lg:mt-8" data-speed="fast">
                             <ul class="tag-list scroller__inner">
