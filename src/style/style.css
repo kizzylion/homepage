@@ -150,6 +150,8 @@ body {
   --glass: var(--glassWhite);
   --fg-primary: var(--Gray-900);
   --fg-secondary: var(var(--Gray-700));
+  --fg-Success-primary: var(--Success-600);
+  --fg-Success-secondary: var(--Success-600);
   --text-alpha: var(--Gray-25);
 
   font-family: "Roboto Mono", monospace;
@@ -178,6 +180,8 @@ body.dark-theme {
   --glass: var(--glassBlack);
   --fg-primary: var(--Gray-100);
   --fg-secondary: var(var(--Gray-300));
+  --fg-Success-primary: var(--Success-600);
+  --fg-Success-secondary: var(--Success-400);
   --text-alpha: var(--Gray-950);
 
   background-color: var(--bg-primary);
@@ -205,6 +209,8 @@ body.dark-theme {
     --glass: var(--glassBlack);
     --fg-primary: var(--Gray-100);
     --fg-secondary: var(var(--Gray-300));
+    --fg-Success-primary: var(--Success-600);
+    --fg-Success-secondary: var(--Success-400);
     --text-alpha: var(--Gray-950);
 
     background-color: var(--bg-primary);
@@ -228,6 +234,8 @@ body.dark-theme {
     --glass: var(--glassWhite);
     --fg-primary: var(--Gray-900);
     --fg-secondary: var(var(--Gray-700));
+    --fg-Success-primary: var(--Success-600);
+    --fg-Success-secondary: var(--Success-600);
     --text-alpha: var(--Gray-25);
 
     font-family: "Roboto Mono", monospace;
@@ -302,9 +310,12 @@ p {
   }
 
   &.btn-primary {
-    border: 1px solid var(--border-primary);
-    color: var(--text-alpha);
-    background-color: var(--Success-600);
+    border: 1px solid var(--fg-Success-primary);
+    color: hsl(120, 100%, 94%);
+    background-color: var(--fg-Success-primary);
+  }
+  &:hover {
+    background-color: var(--fg-Success-secondary);
   }
 
   &.btn-secondary {
@@ -792,17 +803,18 @@ footer#footer {
 
           .imageGroup {
             display: inline-block;
-            /* min-width: fit-content; */
+            max-width: 100%;
             width: auto;
-            height: fit-content;
+            height: auto;
 
             .battle {
               position: absolute;
               width: auto;
               height: auto;
 
-              max-width: none;
-              max-width: none;
+              max-width: 100%;
+              max-height: auto;
+
               object-fit: cover;
               /* border: 1px solid red; */
             }
@@ -831,11 +843,12 @@ footer#footer {
         }
 
         .img-glass:has(.imageGroup) {
-          height: auto;
+          height: auto !important;
           left: 50%;
           top: 50%;
           transform: translate(-50%, -50%);
           transform-origin: center;
+          width: 100%;
         }
         .img-glass:has(.todo) {
           top: 50%;
