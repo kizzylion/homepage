@@ -1,44 +1,44 @@
-import { addHomepage } from "../homepage"
-import { emptyElement, getElementById, log, querySelector } from "../utilities"
-import $ from "jquery"
-import "magnific-popup/dist/magnific-popup.css"
-import "magnific-popup"
-import { addFooter } from "./footerPage"
+import { addHomepage } from "../homepage";
+import { emptyElement, getElementById, log, querySelector } from "../utilities";
+import $ from "jquery";
+import "magnific-popup/dist/magnific-popup.css";
+import "magnific-popup";
+import { addFooter } from "./footerPage";
 
 export function addDetail(elem, data) {
-  emptyElement(getElementById("main"))
-  let detail = document.createElement("section")
-  detail.id = "cardDetail"
-  detail.classList.add("mt-16", "h-fill", "lg:mt-20")
-  detail.innerHTML = cardDetailUi(data)
+  emptyElement(getElementById("main"));
+  let detail = document.createElement("section");
+  detail.id = "cardDetail";
+  detail.classList.add("mt-16", "h-fill", "lg:mt-20");
+  detail.innerHTML = cardDetailUi(data);
 
   // elem.innerHTML = ""
 
-  const imageBox = querySelector(".imageBox", detail)
+  const imageBox = querySelector(".imageBox", detail);
   for (const image of data.pic) {
-    const imgGlass = document.createElement("div")
-    imgGlass.classList.add("img-glass")
-    imgGlass.setAttribute("href", `${image.src}`)
-    imgGlass.appendChild(image)
-    imageBox.appendChild(imgGlass)
+    const imgGlass = document.createElement("div");
+    imgGlass.classList.add("img-glass");
+    imgGlass.setAttribute("href", `${image.src}`);
+    imgGlass.appendChild(image);
+    imageBox.appendChild(imgGlass);
   }
-  elem.appendChild(detail)
-  addFooter(getElementById("main"))
-  addEvents()
+  elem.appendChild(detail);
+  addFooter(getElementById("main"));
+  addEvents();
 }
 
 function addEvents() {
-  const main = getElementById("main")
-  const back = getElementById("goBack")
+  const main = getElementById("main");
+  const back = getElementById("goBack");
   back.addEventListener("click", function (e) {
-    addHomepage(main)
+    addHomepage(main);
 
     //scroll into view
-    const targetSection = getElementById("portfolio")
+    const targetSection = getElementById("portfolio");
     targetSection.scrollIntoView({
       behavior: "instant", // Enables instant scrolling
-    })
-  })
+    });
+  });
 
   // For a gallery
   $(".img-glass").magnificPopup({
@@ -47,7 +47,7 @@ function addEvents() {
     gallery: {
       enabled: true, // Enable gallery mode
     },
-  })
+  });
 }
 
 function cardDetailUi(data) {
@@ -78,9 +78,9 @@ function cardDetailUi(data) {
             ${data.description}
           </p>
 
-          <div class="flex gap-8" >
-            <a  href="${data.repository}" class="btn btn-secondary flex text-base"><i class="bi bi-github mr-3"></i> View Code</a>
-            <a  href="${data.liveLink}" class="btn btn-primary flex text-base"> View Project <i class="bi bi-box-arrow-up-right ml-3"></i></a>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 w-full" >
+            <a  href="${data.repository}" class="btn btn-secondary w-full flex text-base"><i class="bi bi-github mr-3"></i> View Code</a>
+            <a  href="${data.liveLink}" class="btn btn-primary w-full flex text-base"> View Project <i class="bi bi-box-arrow-up-right ml-3"></i></a>
           </div>
        </section>
         <footer>
@@ -89,5 +89,5 @@ function cardDetailUi(data) {
       
       </div>
     </div>
-  `
+  `;
 }

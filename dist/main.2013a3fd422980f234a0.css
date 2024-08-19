@@ -464,6 +464,8 @@ video {
   justify-content: center;
 }.justify-between{
   justify-content: space-between;
+}.gap-4{
+  gap: 1rem;
 }.gap-5{
   gap: 1.25rem;
 }.gap-6{
@@ -743,11 +745,12 @@ video {
 }.btn {
   display: inline;
   font-family: "IBM Plex Mono";
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 600;
   line-height: 150%;
   letter-spacing: 1px;
+  text-align: center;
 
   padding: 0.75em 1em;
   border-radius: 0.5em;
@@ -759,7 +762,7 @@ video {
   }.btn.btn-primary {
     border: 1px solid var(--border-primary);
     color: var(--text-alpha);
-    background-color: var(--fg-primary);
+    background-color: var(--Success-600);
   }.btn.btn-secondary {
     background-color: var(--bg-tertiary);
     color: var(--text-tertiary);
@@ -1010,7 +1013,7 @@ video {
                     backdrop-filter: blur(6px);
           }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass .imageGroup {
               display: inline-block;
-              /* min-width: fit-content; */
+              min-width: 100%;
               width: auto;
               height: -moz-fit-content;
               height: fit-content;
@@ -1018,8 +1021,12 @@ video {
                 position: absolute;
                 width: auto;
                 height: auto;
-                max-width: none;
+
+                max-width: 100%;
+                max-height: auto;
+
                 -o-object-fit: cover;
+
                    object-fit: cover;
                 /* border: 1px solid red; */
               }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass .imageGroup .battle-1 {
@@ -1040,11 +1047,12 @@ video {
               height: auto;
               max-height: 100% !important;
             }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass:has(.imageGroup) {
-            height: auto;
+            height: auto !important;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
             transform-origin: center;
+            width: 100%;
           }section#portfolio #portfolioContent .card .card-image .imageBox .img-glass:has(.todo) {
             top: 50%;
             transform: translate(0, -50%);
@@ -1300,6 +1308,10 @@ video {
           }
 }@media (min-width: 768px){.md\:mr-2{
     margin-right: 0.5rem;
+  }.md\:grid-cols-2{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }.md\:gap-8{
+    gap: 2rem;
   }.md\:gap-y-8{
     row-gap: 2rem;
   }.md\:rounded-3xl{
@@ -1365,4 +1377,4 @@ video {
 }
 
 
-/*# sourceMappingURL=main.14464b75d3975e6a54aa.css.map*/
+/*# sourceMappingURL=main.2013a3fd422980f234a0.css.map*/

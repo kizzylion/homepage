@@ -285,11 +285,12 @@ p {
 .btn {
   display: inline;
   font-family: "IBM Plex Mono";
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 600;
   line-height: 150%;
   letter-spacing: 1px;
+  text-align: center;
 
   padding: 0.75em 1em;
   border-radius: 0.5em;
@@ -303,7 +304,7 @@ p {
   &.btn-primary {
     border: 1px solid var(--border-primary);
     color: var(--text-alpha);
-    background-color: var(--fg-primary);
+    background-color: var(--Success-600);
   }
 
   &.btn-secondary {
@@ -609,8 +610,9 @@ section#portfolio {
 
             .imageGroup {
               display: inline-block;
-              /* min-width: fit-content; */
+              min-width: 100%;
               width: auto;
+              height: -moz-fit-content;
               height: fit-content;
 
               .battle {
@@ -618,8 +620,9 @@ section#portfolio {
                 width: auto;
                 height: auto;
 
-                max-width: none;
-                max-width: none;
+                max-width: 100%;
+                max-height: auto;
+
                 object-fit: cover;
                 /* border: 1px solid red; */
               }
@@ -648,11 +651,12 @@ section#portfolio {
           }
 
           .img-glass:has(.imageGroup) {
-            height: auto;
+            height: auto !important;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
             transform-origin: center;
+            width: 100%;
           }
           .img-glass:has(.todo) {
             top: 50%;
