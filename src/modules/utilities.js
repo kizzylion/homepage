@@ -1,22 +1,22 @@
-import Typed from "typed.js"
-import { addDetail } from "./sections/detailPage"
+import Typed from "typed.js";
+import { addDetail } from "./sections/detailPage";
 
 export function getElementById(id, element = document) {
-  return element.getElementById(id)
+  return element.getElementById(id);
 }
 export function querySelector(name, element = document) {
-  return element.querySelector(name)
+  return element.querySelector(name);
 }
 
 export function emptyElement(e) {
-  e.innerHTML = ""
+  e.innerHTML = "";
 }
 
-let typedInstance = null
+let typedInstance = null;
 export function typedMessage(element, array, loop = false, typeSpeed = 50) {
   if (typedInstance) {
-    typedInstance.destroy()
-    typedInstance = null
+    typedInstance.destroy();
+    typedInstance = null;
   }
 
   typedInstance = new Typed(getElementById(element), {
@@ -25,31 +25,34 @@ export function typedMessage(element, array, loop = false, typeSpeed = 50) {
     backSpeed: 25, // Speed of backspacing
     backDelay: 3000, // Delay before starting to backspace
     loop: loop,
-  })
+  });
 }
 
 export function log(...content) {
-  console.log(...content)
+  console.log(...content);
 }
 
 export function createPortfolioCard(item) {
-  let data = item
-  const main = getElementById("main")
-  const card = document.createElement("article")
-  card.classList.add("card")
+  let data = item;
+  const main = getElementById("main");
+  const card = document.createElement("article");
+  card.classList.add("card");
 
-  card.innerHTML = addCardUi(item)
-  const imageBox = querySelector(".imageBox", card)
+  card.innerHTML = addCardUi(item);
+  const imageBox = querySelector(".imageBox", card);
   for (const image of item.pic) {
-    const imgGlass = document.createElement("div")
-    imgGlass.classList.add("img-glass")
-    imgGlass.appendChild(image)
-    imageBox.appendChild(imgGlass)
+    const imgGlass = document.createElement("div");
+    imgGlass.classList.add("img-glass");
+    imgGlass.appendChild(image);
+    imageBox.appendChild(imgGlass);
   }
 
-  card.addEventListener("click", function (e) {
-    addDetail(main, data)
-  })
+  card.addEventListener("click", async function (e) {
+    getElementById("homepage").classList.toggle("show");
+    //wait for 0.1s
+    await new Promise((resolve) => setTimeout(resolve, 50));
+    addDetail(main, data);
+  });
 
   function addCardUi(item) {
     return `
@@ -66,8 +69,8 @@ export function createPortfolioCard(item) {
                     </p>
                     <time class="year">${item.year}</time>
                 </section>
-    `
+    `;
   }
 
-  return card
+  return card;
 }
