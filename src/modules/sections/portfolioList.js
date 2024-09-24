@@ -1,36 +1,36 @@
-import battleship1 from "../../asset/images/folioImages/battleship1.jpg"
-import battleship2 from "../../asset/images/folioImages/battleship2.png"
-import battleship3 from "../../asset/images/folioImages/battleship3.jpg"
-import todo1 from "../../asset/images/folioImages/todoapp1.jpg"
-import todo2 from "../../asset/images/folioImages/todoapp2.jpg"
-import todo3 from "../../asset/images/folioImages/todoapp3.jpg"
-import weather1 from "../../asset/images/folioImages/weather1.png"
-import weather2 from "../../asset/images/folioImages/weather2.png"
-import weather3 from "../../asset/images/folioImages/weather3.png"
-import restaurant1 from "../../asset/images/folioImages/restaurant1.png"
-import restaurant2 from "../../asset/images/folioImages/restaurant2.png"
-import tictac1 from "../../asset/images/folioImages/tictac1.png"
-import tictac2 from "../../asset/images/folioImages/tictac2.png"
-import calculator1 from "../../asset/images/folioImages/calculator1.png"
-import calculator2 from "../../asset/images/folioImages/calculator2.png"
-import { log } from "../utilities"
+import battleship1 from "../../asset/images/folioImages/battleship1.jpg";
+import battleship2 from "../../asset/images/folioImages/battleship2.png";
+import battleship3 from "../../asset/images/folioImages/battleship3.jpg";
+import todo1 from "../../asset/images/folioImages/todoapp1.jpg";
+import todo2 from "../../asset/images/folioImages/todoapp2.jpg";
+import todo3 from "../../asset/images/folioImages/todoapp3.jpg";
+import weather1 from "../../asset/images/folioImages/weather1.png";
+import weather2 from "../../asset/images/folioImages/weather2.png";
+import weather3 from "../../asset/images/folioImages/weather3.png";
+import restaurant1 from "../../asset/images/folioImages/restaurant1.png";
+import restaurant2 from "../../asset/images/folioImages/restaurant2.png";
+import tictac1 from "../../asset/images/folioImages/tictac1.png";
+import tictac2 from "../../asset/images/folioImages/tictac2.png";
+import calculator1 from "../../asset/images/folioImages/calculator1.png";
+import calculator2 from "../../asset/images/folioImages/calculator2.png";
+import { log } from "../utilities";
 
 function createImg(src, cls, clsI) {
   if (typeof src === "object") {
-    const imageGroup = document.createElement("div")
-    imageGroup.classList.add("imageGroup", "relative")
+    const imageGroup = document.createElement("div");
+    imageGroup.classList.add("imageGroup", "relative");
     for (let i = 0; i < src.length; i++) {
-      const link = src[i]
-      const index = i + 1 // Adding 1 to the index to start from 1 instead of 0
+      const link = src[i];
+      const index = i + 1; // Adding 1 to the index to start from 1 instead of 0
 
-      imageGroup.appendChild(createImg(link, cls, `${cls}-${index}`))
+      imageGroup.appendChild(createImg(link, cls, `${cls}-${index}`));
     }
-    return imageGroup
+    return imageGroup;
   } else {
-    const img = new Image()
-    img.classList.add("projectImage", cls, clsI)
-    img.src = src
-    return img
+    const img = new Image();
+    img.classList.add("projectImage", cls, clsI);
+    img.src = src;
+    return img;
   }
 }
 
@@ -55,7 +55,7 @@ export const listItems = [
     year: 2024,
     picSrc: [todo1, todo2, todo3],
     repository: "https://github.com/kizzylion/kizztaskmaster",
-    liveLink: "https://kizzylion.github.io/battleship/",
+    liveLink: "https://kizzylion.github.io/kizztaskmaster/",
   },
   {
     title: "Weather App",
@@ -100,11 +100,11 @@ export const listItems = [
     repository: "https://github.com/kizzylion/calculator",
     liveLink: "https://kizzylion.github.io/calculator/",
   },
-]
+];
 
 for (const item of listItems) {
-  const cls = item.class
+  const cls = item.class;
   item.pic = item.picSrc.map((itemSrc, index) =>
     createImg(itemSrc, cls, `${cls}-${index + 1}`)
-  )
+  );
 }
