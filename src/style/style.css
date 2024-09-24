@@ -352,13 +352,18 @@ section#banner {
       rgba(16, 24, 40, 0.5) 100%
     ),
     var(--Gray-950, #0c111d);
-
+  .section {
+    perspective: 1000px;
+    perspective-origin: top center;
+  }
   .sun {
     will-change: transform;
     transform-origin: top center;
     top: 12%;
     left: 50%;
-    transform: translate(-50%, 0%);
+    transform: translate3d(-50%, 50%, -2000px);
+
+    animation: sunrise 20s linear infinite alternate;
     .sun-ray {
       position: absolute;
       width: 770px;
@@ -372,7 +377,12 @@ section#banner {
       mix-blend-mode: hard-light;
       flex-shrink: 0;
       z-index: 1;
+      transform: scale(1.01);
+      transform-origin: center;
+      will-change: transform;
+      animation: row 10s linear infinite alternate;
     }
+
     .sun-front {
       width: 770px;
       height: 706px;
@@ -386,6 +396,8 @@ section#banner {
       );
       mix-blend-mode: lighten;
       z-index: 2;
+      transform: rotate(-10deg);
+      animation: srotate 10s infinite alternate;
     }
   }
 
@@ -592,6 +604,9 @@ section#portfolio {
   }
 
   #portfolioContent {
+    perspective: 1000px;
+    perspective-origin: none;
+
     .card {
       will-change: transform;
       cursor: pointer;
@@ -759,6 +774,27 @@ section#portfolio {
       }
     }
   }
+
+  /* select all the class of card that are odd */
+  .card {
+    opacity: 0.6;
+    transform: translateZ(-100px);
+    transform-origin: center;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition-delay: 0.3s;
+  }
+  .card:nth-child(odd) {
+    transform: translateX(-5%);
+  }
+  .card:nth-child(even) {
+    transform: translateX(5%);
+  }
+
+  /* when in view, show them */
+  .card.in-view {
+    opacity: 1;
+    transform: translateZ(0);
+  }
 }
 
 footer#footer {
@@ -924,6 +960,24 @@ footer#footer {
     }
   }
 }
+
+@keyframes sunrise {
+  to {
+    transform: translate3d(-50%, 0%, 800px);
+  }
+}
+@keyframes srotate {
+  to {
+    transform: rotate(10deg);
+  }
+}
+@keyframes row {
+  to {
+    opacity: 0.15;
+    transform: scale(1.1);
+  }
+}
+
 @keyframes scroll {
   to {
     transform: translate(calc(-50% - 0.5rem));

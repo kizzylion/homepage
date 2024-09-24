@@ -798,12 +798,17 @@ video {
       rgba(16, 24, 40, 0.5) 100%
     ),
     var(--Gray-950, #0c111d);
-}section#banner .sun {
+}section#banner .section {
+    perspective: 1000px;
+    perspective-origin: top center;
+  }section#banner .sun {
     will-change: transform;
     transform-origin: top center;
     top: 12%;
     left: 50%;
-    transform: translate(-50%, 0%);
+    transform: translate3d(-50%, 50%, -2000px);
+
+    animation: sunrise 20s linear infinite alternate;
   }section#banner .sun .sun-ray {
       position: absolute;
       width: 770px;
@@ -817,6 +822,10 @@ video {
       mix-blend-mode: hard-light;
       flex-shrink: 0;
       z-index: 1;
+      transform: scale(1.01);
+      transform-origin: center;
+      will-change: transform;
+      animation: row 10s linear infinite alternate;
     }section#banner .sun .sun-front {
       width: 770px;
       height: 706px;
@@ -830,6 +839,8 @@ video {
       );
       mix-blend-mode: lighten;
       z-index: 2;
+      transform: rotate(-10deg);
+      animation: srotate 10s infinite alternate;
     }section#banner h1 {
     z-index: 4;
     text-align: center;
@@ -996,7 +1007,10 @@ video {
       content: "🪴";
       font-size: 1.5em;
       margin-left: 0.5rem;
-    }section#portfolio #portfolioContent .card {
+    }section#portfolio #portfolioContent {
+    perspective: 1000px;
+    perspective-origin: none;
+  }section#portfolio #portfolioContent .card {
       will-change: transform;
       cursor: pointer;
     }section#portfolio #portfolioContent .card .card-image {
@@ -1127,7 +1141,20 @@ video {
           font-weight: 600;
         }section#portfolio #portfolioContent .card:hover .card-image .imageBox {
           transform: scale(1.05);
-        }footer#footer {
+        }/* select all the class of card that are odd */section#portfolio .card {
+    opacity: 0.6;
+    transform: translateZ(-100px);
+    transform-origin: center;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition-delay: 0.3s;
+  }section#portfolio .card:nth-child(odd) {
+    transform: translateX(-5%);
+  }section#portfolio .card:nth-child(even) {
+    transform: translateX(5%);
+  }/* when in view, show them */section#portfolio .card.in-view {
+    opacity: 1;
+    transform: translateZ(0);
+  }footer#footer {
   margin-top: auto;
   background: var(--bg-secondary);
   color: var(--text-secondary);
@@ -1254,7 +1281,20 @@ video {
         color: var(--text-tertiary);
       } */#cardDetail .content .card-content .year {
         font-weight: 600;
-      }@keyframes scroll {
+      }@keyframes sunrise {
+  to {
+    transform: translate3d(-50%, 0%, 800px);
+  }
+}@keyframes srotate {
+  to {
+    transform: rotate(10deg);
+  }
+}@keyframes row {
+  to {
+    opacity: 0.15;
+    transform: scale(1.1);
+  }
+}@keyframes scroll {
   to {
     transform: translate(calc(-50% - 0.5rem));
   }
@@ -1391,4 +1431,4 @@ video {
 }
 
 
-/*# sourceMappingURL=main.6e728294bd4dbba87fc6.css.map*/
+/*# sourceMappingURL=main.162028eaaffc529d616c.css.map*/
