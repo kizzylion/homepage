@@ -30,6 +30,7 @@ function createImg(src, cls, clsI) {
     const img = new Image();
     img.classList.add("projectImage", cls, clsI);
     img.src = src;
+    img.loading = "lazy";
     return img;
   }
 }
