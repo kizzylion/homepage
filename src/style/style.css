@@ -812,9 +812,6 @@ footer#footer {
 
 #cardDetail {
   height: 100%;
-  transform: translateZ(-1000px); /* Start scaled down */
-  opacity: 0; /* Start hidden */
-  animation: showDetailAnime 0.1s ease-out forwards;
   #cardDetailHeading {
   }
   .content {
@@ -963,16 +960,6 @@ footer#footer {
     }
   }
 }
-#main {
-  perspective: 1000px;
-}
-#homepage {
-  transform: translateZ(0);
-  transition: transform 0.1s ease-out;
-}
-#homepage.close {
-  transform: translateX(-100vw);
-}
 
 @keyframes sunrise {
   to {
@@ -988,12 +975,6 @@ footer#footer {
   to {
     opacity: 0.15;
     transform: scale(1.1);
-  }
-}
-@keyframes showDetailAnime {
-  to {
-    transform: translateZ(0); /* Animate to full size */
-    opacity: 1; /* Fade in */
   }
 }
 

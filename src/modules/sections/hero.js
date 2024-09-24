@@ -1,26 +1,24 @@
-import chimaSrc from "../../asset/images/kizito.jpg";
-import { getElementById, log, typedMessage } from "../utilities";
+import chimaSrc from "../../asset/images/kizito.jpg"
+import { getElementById, log, typedMessage } from "../utilities"
 
-const chimaPhoto = new Image();
-chimaPhoto.src = chimaSrc;
-chimaPhoto.alt = "Chima Kizito";
-chimaPhoto.loading = "lazy";
+const chimaPhoto = new Image()
+chimaPhoto.src = chimaSrc
 export function addHero(elem) {
-  let section = document.createElement("section");
-  section.id = "hero";
-  section.classList.add("relative", "md:p-10", "lg:py-20", "lg:px-8");
-  section.innerHTML = heroUi();
-  elem.appendChild(section);
+  let section = document.createElement("section")
+  section.id = "hero"
+  section.classList.add("relative", "md:p-10", "lg:py-20", "lg:px-8")
+  section.innerHTML = heroUi()
+  elem.appendChild(section)
 
-  checkReduceMotion();
-  const imageContainer = getElementById("portrait");
-  imageContainer.appendChild(chimaPhoto);
+  checkReduceMotion()
+  const imageContainer = getElementById("portrait")
+  imageContainer.appendChild(chimaPhoto)
   typedMessage(
     "myName",
     ["HEY, I’M CHUKWUMA IHEANACHO 👋 <br> WELCOME TO MY CREATIVE CORNER."],
     false,
     150
-  );
+  )
 }
 
 function heroUi() {
@@ -123,34 +121,34 @@ function heroUi() {
                     </div>
                 </div>
             </div>
-    `;
+    `
 }
 
 function checkReduceMotion() {
   if (!window.matchMedia("(prefers-reduced-motion:reduce)").matches) {
-    addAnimation();
+    addAnimation()
   }
 }
 
 function addAnimation() {
-  const scrollers = document.querySelectorAll(".scroller");
+  const scrollers = document.querySelectorAll(".scroller")
 
   scrollers.forEach((scroller) => {
     // add data-animated="true" to every `.scroller` on the page
-    scroller.setAttribute("data-animated", "true");
+    scroller.setAttribute("data-animated", "true")
 
     //make an array from the elements within `.scroller-inner`
-    const scrollerInner = scroller.querySelector(".scroller__inner");
-    const scrollerContent = Array.from(scrollerInner.children);
+    const scrollerInner = scroller.querySelector(".scroller__inner")
+    const scrollerContent = Array.from(scrollerInner.children)
     //for each item in the array, clone it
     //add aria-hidden to it
     //add it into the `.scroller-inner`
 
     scrollerContent.forEach((item) => {
-      const duplicatedItem = item.cloneNode(true);
+      const duplicatedItem = item.cloneNode(true)
 
-      duplicatedItem.setAttribute("aria-hidden", "true");
-      scrollerInner.appendChild(duplicatedItem);
-    });
-  });
+      duplicatedItem.setAttribute("aria-hidden", "true")
+      scrollerInner.appendChild(duplicatedItem)
+    })
+  })
 }

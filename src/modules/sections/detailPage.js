@@ -5,10 +5,7 @@ import "magnific-popup/dist/magnific-popup.css";
 import "magnific-popup";
 import { addFooter } from "./footerPage";
 
-export async function addDetail(elem, data) {
-  getElementById("homepage").classList.toggle("close");
-  // wait for 300ms
-  await new Promise((resolve) => setTimeout(resolve, 100));
+export function addDetail(elem, data) {
   emptyElement(getElementById("main"));
   let detail = document.createElement("section");
   detail.id = "cardDetail";
@@ -33,11 +30,8 @@ export async function addDetail(elem, data) {
 function addEvents() {
   const main = getElementById("main");
   const back = getElementById("goBack");
-  back.addEventListener("click", async function (e) {
+  back.addEventListener("click", function (e) {
     addHomepage(main);
-    getElementById("homepage").classList.toggle("close");
-    await new Promise((resolve) => setTimeout(resolve, 100));
-    getElementById("homepage").classList.toggle("close");
 
     //scroll into view
     const targetSection = getElementById("portfolio");
